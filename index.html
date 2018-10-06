@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>This Page is Available Offline</title>
+
     <script>
       if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', {
           scope: '/'
-        }).then(registration => console.log('Registered!'), err => throw Error('failed :('));
+        }).then(registration => console.log('Registered!'), err => console.error('failed :('));
         navigator.serviceWorker.ready.then(function(registration) {
           console.log('Service Worker Ready');
         });
 
-        Notification.requestPermission(status =>{
-          console.log('Notification permission status: ', status);
-        })
+        
       }
 
     </script>
